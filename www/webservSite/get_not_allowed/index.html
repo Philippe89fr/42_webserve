@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webserv Homepage</title>
+    <style>
+        :root {
+            --background-image: url('Photos/server.jpeg');
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Image de fond définie via variable CSS */
+            background-image: var(--background-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .portraits-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 30px;
+        }
+
+        .portrait {
+            width: 250px;
+            height: 300px;
+            border: 5px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .portrait:hover {
+            transform: scale(1.05);
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .http-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: white;
+        }
+
+        .http-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .get {
+            background-color: #4CAF50;
+        }
+
+        .post {
+            background-color: #2196F3;
+        }
+
+        .delete {
+            background-color: #F44336;
+        }
+
+        .return {
+            background-color: #FF9800;
+        }
+
+		.upload {
+			background-color: #02F0F4;
+		}
+
+        .cgi {
+            background-color: #9C27B0;
+        }
+    </style>
+    <script>
+        function showMethodGet(method) {
+            alert("Pas besoin de demo, tu vois bien que des GET sont fait dans tous les sens!!");
+        }
+		function getCookie(name) {
+			let	key = name + "=";
+			let	decodedCookie = decodeURIComponent(document.cookie);
+			let	ca = decodedCookie.split(';');
+			for (let i = 0; i < ca.length; i++) {
+				let	c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(key) == 0) {
+					return c.substring(key.length, c.length);
+				}
+			}
+			return null;
+		}
+		function checkCookie() {
+			var	name_cookie = getCookie("name");
+			if (name_cookie == null) {
+				var	name = prompt('Please enter your name','name');
+				document.cookie = "name=" + name;
+				location.reload();
+			}
+			else
+				document.getElementById("nameID").innerHTML = name_cookie;
+		}
+    </script>
+</head>
+<body onload="checkCookie()">
+	<h1>/ Projet Webserv \</h1>
+	<h1>Welcome <span id="nameID"></span></h1>
+	<br><br>
+
+	<div class="portraits-container">
+	<div class="portrait" onclick="window.open('https://profile-v3.intra.42.fr/users/prambaud','_blank')">
+		<img src= "Photos/prambaud.jpg" alt="Portrait 1">
+	</div>
+	<div class="portrait" onclick="window.open('https://profile-v3.intra.42.fr/users/lbenatar','_blank')">
+		<img src="Photos/lbenatar.jpg" alt="Portrait 2">
+	</div>
+	<div class="portrait" onclick="window.open('https://profile-v3.intra.42.fr/users/mgalvez','_blank')">
+		<img src="Photos/mgalvez.jpg" alt="Portrait 3">
+	</div>
+	</div>
+
+	<div class="buttons-container">
+	<button class="http-button get" onclick="showMethodGet('GET')">GET</button>
+	<button class="http-button post" onclick="window.location.href='post.html'">POST</button>
+	<button class="http-button delete" onclick="window.location.href='cgi-bin/delete.php'">DELETE</button>
+	<button class="http-button return" onclick="window.location.href='./Return'">RETURN</button>
+	<button class="http-button upload" onclick="window.location.href='upload.html'">UPLOAD</button>
+	<button class="http-button cgi" onclick="window.location.href='cgi-bin/CGI.php'">CGI</button>
+    <button class="http-button get_not_allowed" onclick="window.location.href='/get_not_allowed'">get_not_allowed</button>
+	</div>
+</body>
+</html>

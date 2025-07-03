@@ -1,0 +1,22 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+.objs/
+
+# Temp files
+.tmp/
+
+# Executables
+webserv
+
+# Debug files
+callgrind*
+
+# IDE files
+*.swp
+*.cswp
+*.json
+.vscode
+.cache

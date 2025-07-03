@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Méthode POST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+ 
+        h1 {
+            color: #2196F3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+ 
+        .form-container {
+            background-color: #f5f5f5;
+            border-radius: a8px;
+            padding: 20px;
+        }
+ 
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+ 
+        .form-group {
+            margin-bottom: 20px;
+        }
+ 
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+ 
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+ 
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+ 
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+ 
+        button:hover {
+            background-color: #0b7dda;
+        }
+ 
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #2196F3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Méthode POST</h1>
+ 
+    <div class="form-container">
+        <h2>Formulaire d'envoi de données</h2>
+ 
+        <form action="/Uploads" method="POST">
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+ 
+            <div class="form-group">
+                <label for="comment">Commentaire</label>
+                <textarea id="comment" name="comment" required></textarea>
+            </div>
+ 
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+ 
+    <a href="index.html" class="back-link">Retour à la page principale</a>
+</body>
+</html>
